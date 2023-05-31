@@ -86,6 +86,11 @@
   background-image: linear-gradient(to right, #1a71fc, #78b6fd);
 }
 
+.red_btn {
+  @apply rounded-full py-1.5 px-5 text-white transition-all hover:bg-white hover:text-white text-center text-sm font-inter flex items-center justify-center;
+  background-image: linear-gradient(to right, #ff010d, #cb6161);
+}
+
 .outline_btn {
   @apply rounded-full border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
@@ -96,6 +101,26 @@
 
 .orange_gradient {
   @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+}
+
+.red_gradient {
+  @apply bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent;
+}
+
+.yellow_gradient {
+  @apply bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent;
+}
+
+.pink_gradient {
+  @apply bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 bg-clip-text text-transparent;
+}
+
+.lightblue_gradient {
+  @apply bg-gradient-to-r from-sky-300 via-sky-400 to-sky-500 bg-clip-text text-transparent;
+}
+
+.purple_gradient {
+  @apply bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 bg-clip-text text-transparent;
 }
 
 .green_gradient {
