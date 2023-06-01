@@ -20,8 +20,8 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
                 </span>
 
                   <input
-                    value={post.name}
-                    onChange={(e) => setPost({ ...post, name: e.target.value })}
+                      value={post.group_name}
+                      onChange={(e) => setPost({ ...post, group_name: e.target.value })}
                     placeholder="Group Name"
                     required
                     className="form_input"

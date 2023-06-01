@@ -10,8 +10,13 @@ const GroupSchema = new Schema({
         type: String,
         required: [true, 'Group name is required!'],
         unique: [true, 'Group name already exists'],
-    }
-    // Add any other fields you want for the group
+    },
+    members: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+        }
+    ]
 });
 
 const Group = models.Group || model("Group", GroupSchema);

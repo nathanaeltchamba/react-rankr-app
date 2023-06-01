@@ -15,7 +15,7 @@ const CreateGroup = () => {
 
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
-    name: ''
+    group_name: ''
   })
 
   const createGroup = async (e) => {
@@ -24,22 +24,20 @@ const CreateGroup = () => {
 
     setSubmitting(true);
 
-    console.log('Before try/fetch');
-
     try {
       const response = await fetch("api/group/new", {
         method: "POST",
         body: JSON.stringify({
-          name: post.name,
+          group_name: post.group_name,
           userId: session?.user.id,
+          members: post.members
         }),
       });
-      
-      console.log('After fetch');
-
-      console.log("Response status:", response.status);
 
       if (response.ok) {
+        const data = await response.json();
+        // Use the 'data' variable to access the response body data
+        console.log(data);
         router.push("/");
       }
     } catch (error) {
