@@ -36,7 +36,6 @@ const CreateGroup = () => {
 
       if (response.ok) {
         const data = await response.json();
-        // Use the 'data' variable to access the response body data
         console.log(data);
         router.push("/");
       }
