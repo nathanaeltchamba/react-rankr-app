@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import GroupCard from './GroupCard';
 
 const GroupCardList = ({ data }) => {
+    console.log(data)
     return (
         <div className='mt-16 prompt_layout'>
             {data.map((post) => (
@@ -50,6 +51,12 @@ const GroupFeed = () => {
                     className='search_input peer'
                 />
             </form>
+
+            <section>
+                <div className='head_text1 pink_gradient'>
+                    <h4>Join A Group</h4>
+                </div>
+            </section>
 
             <GroupCardList
                 data={posts}
