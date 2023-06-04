@@ -1,4 +1,5 @@
 import React from 'react'
+import GroupFeed from '@components/GroupFeed'
 
 const Home = () => {
   return (
@@ -10,6 +11,8 @@ const Home = () => {
       </h1>
       <p className='desc text-center'>If you think you know your friends they way they think
          they know you, guess again.</p>
+
+      <GroupFeed />
 
     </section>
   )

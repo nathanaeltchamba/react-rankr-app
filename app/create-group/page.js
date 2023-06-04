@@ -8,7 +8,6 @@ import { useRouter } from 'next/navigation';
 import Form from '@components/Form';
 
 
-// const router = useRouter();
 const CreateGroup = () => {
   const router = useRouter();
   const { data: session } = useSession();
@@ -48,6 +47,7 @@ const CreateGroup = () => {
   };
 
   return (
+
     <Form
       type="Create"
       post={post}

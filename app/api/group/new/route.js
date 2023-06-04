@@ -17,8 +17,7 @@ export const POST = async (req) => {
             status:201
         })
     } catch (error) {
-        return new Response("Failed to fetch groups", { status: 500 })
+        return new Response("Failed to create a group", { status: 500 })
     }
-
 }
 
