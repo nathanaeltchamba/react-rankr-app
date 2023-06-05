@@ -22,23 +22,27 @@ export const PATCH = async (request, { params }) => {
     try {
         await connectToDB();
 
-        // Find the existing Group by ID
         const existingGroup = await Group.findById(params.id);
 
         if (!existingGroup) {
             return new Response("Group not found", { status: 404 });
         }
 
-        // Update the prompt with new data
+        const groupWithSameName = await Group.findOne({ group_name });
+        if (groupWithSameName && groupWithSameName._id.toString() !== existingGroup._id.toString()) {
+            return new Response("Group name already exists", { status: 400 });
+        }
+
         existingGroup.group_name = group_name;
 
         await existingGroup.save();
 
         return new Response("Successfully updated the Group", { status: 200 });
     } catch (error) {
-        return new Response("Error Updating Prompt", { status: 500 });
+        return new Response("Error updating the Group", { status: 500 });
     }
 };
+
 
 export const DELETE = async (request, { params }) => {
     try {

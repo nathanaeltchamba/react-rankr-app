@@ -17,6 +17,8 @@ const EditGroup = () => {
         group_name: ''
     })
 
+    const [errorMessage, setErrorMessage] = useState('');
+
     useEffect(() => {
         const getGroupDetails = async () => {
             const response = await fetch(`/api/group/${groupId}`);
@@ -29,7 +31,7 @@ const EditGroup = () => {
 
         if (groupId) getGroupDetails();
     }, [groupId]);
-    
+
 
     const editGroup = async (e) => {
         e.preventDefault();
@@ -47,6 +49,11 @@ const EditGroup = () => {
 
             if (response.ok) {
                 router.push("/");
+            } 
+            else if (response.status === 400) {
+                setErrorMessage("Group name already exists");
+            } else {
+                setErrorMessage("Failed to update a group");
             }
         } catch (error) {
             console.log(error);
@@ -55,14 +62,20 @@ const EditGroup = () => {
         }
     };
     return (
-
-        <Form
-            type="Edit"
-            post={post}
-            setPost={setPost}
-            submitting={submitting}
-            handleSubmit={editGroup}
-        />
+        <div>
+            {errorMessage && (
+                <div className="bg-red-400 rounded text-white p-4">
+                    {errorMessage}
+                </div>
+            )}
+            <Form
+                type="Edit"
+                post={post}
+                setPost={setPost}
+                submitting={submitting}
+                handleSubmit={editGroup}
+            />
+        </div>
     )
 }
 

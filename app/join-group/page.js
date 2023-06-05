@@ -1,8 +1,11 @@
 import React from 'react'
+import GroupFeed from '@components/GroupFeed'
 
 const JoinGroup = () => {
   return (
-    <div>JoinGroup</div>
+    <div>
+      <GroupFeed />
+    </div>
   )
 }
 
