@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import GroupCard from './GroupCard';
 
 const GroupCardList = ({ data }) => {
-    console.log(data)
+    // console.log(data)
     return (
         <div className='mt-16 prompt_layout'>
             {data.map((post) => (
