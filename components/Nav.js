@@ -44,6 +44,10 @@ const Nav = () => {
                             Create Group
                         </Link>
 
+                        <Link href="/join-group" className="black_btn">
+                            Join Group
+                        </Link>
+
                         <button type="button" onClick={signOut} className="outline_btn">
                             Sign Out
                         </button>
@@ -104,6 +108,13 @@ const Nav = () => {
                                 onClick={() => setToggleDropdown(false)}
                                 >  
                                 Create Group
+                                </Link>
+                                <Link
+                                href="/join-group"
+                                className="dropdown_link"
+                                onClick={() => setToggleDropdown(false)}
+                                >  
+                                Join Group
                                 </Link>
 
                                 <button 

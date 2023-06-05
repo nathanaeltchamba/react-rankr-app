@@ -23,11 +23,11 @@ const GroupCard = ({ post, handleEdit, handleDelete }) => {
                 />
 
                 <div className='flex flex-col'>
-                    <h3 className='font-satoshi font-semibold text-gray-900'>
+                    <h3 className='font-satoshi font-semibold text-gray-900 italic'>
                         {post.group_name}
                     </h3>
                     <p className='font-inter text-xs text-gray-500'>
-                        Group Host {post.creator.username}
+                        <span className="text-center">Group Host</span> {post.creator.username}
                     </p>
                     <p className='font-inter text-xs text-gray-500'>
                         Group Size {post.members.length}

@@ -15,19 +15,6 @@ const AnswerSchema = new Schema({
         type: String,
         required: true
     },
-    // options: [
-    //     {
-    //         user_id: {
-    //             type: Schema.Types.ObjectId,
-    //             ref: 'User',
-    //             required: true
-    //         },
-    //         value: {
-    //             type: String,
-    //             required: true
-    //         }
-    //     }
-    // ]
 });
 
 const Answer = models.Answer || model("Answer", AnswerSchema);

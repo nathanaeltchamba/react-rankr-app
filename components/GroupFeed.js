@@ -19,13 +19,32 @@ const GroupCardList = ({ data }) => {
 }
 
 const GroupFeed = () => {
-
-    const [searchText, setSearchText] = useState('');
     const [posts, setPosts] = useState([])
 
-    const handleSearchChange = (e) => {
+    const [searchText, setSearchText] = useState('');
+    const [searchTimeout, setSearchTimeout] = useState(null);
+    const [searchedResults, setSearchedResults] = useState([]);
 
-    }
+    const filterGroups = (searchtext) => {
+        const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
+        return posts.filter(
+            (item) =>
+                regex.test(item.creator.username) ||
+                regex.test(item.group_name)
+        );
+    };
+
+    const handleSearchChange = (e) => {
+        clearTimeout(searchTimeout);
+        setSearchText(e.target.value);
+
+        setSearchTimeout(
+            setTimeout(() => {
+                const searchResult = filterGroups(e.target.value);
+                setSearchedResults(searchResult);
+            }, 500)
+        );
+    };
 
     useEffect(() => {
         const fetchGroups = async () => {
@@ -58,9 +77,14 @@ const GroupFeed = () => {
                 </div>
             </section>
 
-            <GroupCardList
-                data={posts}
-            />
+            {/* All Gruops */}
+            {searchText ? (
+                <GroupCardList
+                    data={searchedResults}
+                />
+            ) : (
+                <GroupCardList data={posts} />
+            )}
         </section>
     )
 }
