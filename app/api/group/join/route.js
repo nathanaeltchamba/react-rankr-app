@@ -1,26 +1,25 @@
+// api/group/join.js
 import { connectToDB } from "@utils/database";
 import Group from "@models/group";
-import User from "@models/user";
 
-export const POST = async (request) => {
+export const POST = async (req) => {
     try {
-
         await connectToDB();
 
-        const { userId, groupId } = await request.json();
-        const user = await User.findById(userId);
+        const { groupName } = await req.json();
+        const group = await Group.findOne({ group_name: groupName });
 
-        const group = await Group.findById(groupId);
-
-        if (!user || !group) {
-            return new Response("User or group not found", { status: 404 });
+        if (!group) {
+            return new Response("Group not found", { status: 404 });
         }
 
-        group.members.push(user);
-        user.groups.push(group);
+        // Check if user is already a member of the group
+        if (group.members.includes(req.session.userId)) {
+            return new Response("You are already a member of this group", { status: 400 });
+        }
 
+        group.members.push(req.session.userId);
         await group.save();
-        await user.save();
 
         return new Response(JSON.stringify(group), { status: 200 });
     } catch (error) {

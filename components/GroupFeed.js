@@ -71,11 +71,11 @@ const GroupFeed = () => {
                 />
             </form>
 
-            <section>
+            {/* <section>
                 <div className='head_text1 pink_gradient'>
                     <h4>Join A Group</h4>
                 </div>
-            </section>
+            </section> */}
 
             {/* All Gruops */}
             {searchText ? (
