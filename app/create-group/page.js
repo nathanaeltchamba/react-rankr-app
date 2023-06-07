@@ -34,9 +34,9 @@ const CreateGroup = () => {
         const data = await response.json();
         router.push("/");
       } else if (response.status === 400) {
-        setErrorMessage("Group name already exists");
+        setErrorMessage("Group name already exists. Please try again.");
       } else {
-        setErrorMessage("Failed to create a group");
+        setErrorMessage("Name was invalid or already exists. Please try again.");
       }
     } catch (error) {
       console.log("Error:", error);

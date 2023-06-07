@@ -1,4 +1,3 @@
-// api/group/join.js
 import { connectToDB } from "@utils/database";
 import Group from "@models/group";
 

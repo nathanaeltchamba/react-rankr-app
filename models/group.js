@@ -23,6 +23,13 @@ const GroupSchema = new Schema({
     ]
 });
 
+GroupSchema.pre('save', function (next) {
+    if (!this.code) {
+        this.code = generateCode();
+    }
+    next();
+});
+
 const Group = models.Group || model("Group", GroupSchema);
 
 function generateCode() {

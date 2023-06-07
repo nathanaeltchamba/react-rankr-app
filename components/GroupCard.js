@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
+import Link from "next/link";
+
 const GroupCard = ({ post, handleEdit, handleDelete }) => {
     const { data: session } = useSession();
     const pathName = usePathname();
@@ -55,6 +57,10 @@ const GroupCard = ({ post, handleEdit, handleDelete }) => {
                         Group Members:{" "}
                         {members.map((member) => member).join(", ")}
                     </p>
+
+                    <Link className="outline_btn" href={'/group' + '?id=' + post._id} >
+                        View Group
+                    </Link>
                 </div>
             </div>
 

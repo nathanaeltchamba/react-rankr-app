@@ -71,12 +71,6 @@ const GroupFeed = () => {
                 />
             </form>
 
-            {/* <section>
-                <div className='head_text1 pink_gradient'>
-                    <h4>Join A Group</h4>
-                </div>
-            </section> */}
-
             {/* All Gruops */}
             {searchText ? (
                 <GroupCardList
