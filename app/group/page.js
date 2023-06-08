@@ -23,7 +23,7 @@ const GroupPage = ({post}) => {
         });
         const data = await response.json();
         const memberUsernames = data.usernames;
-        console.log('MemberUsername', memberUsernames);
+        // console.log('MemberUsername', memberUsernames);
         setMembers(memberUsernames);
       } catch (error) {
         console.log(error);
@@ -39,7 +39,7 @@ const GroupPage = ({post}) => {
         const response = await fetch(`/api/group/${groupId}`);
         const data = await response.json();
         setGroup(data);
-        // console.log(data)
+        console.log(data)
       } catch (error) {
         console.error('Failed to fetch group:', error);
       }

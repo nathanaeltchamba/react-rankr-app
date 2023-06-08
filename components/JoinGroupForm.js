@@ -4,14 +4,19 @@ import { useState } from 'react';
 
 const JoinGroupForm = ({ handleJoinGroup }) => {
     const [groupName, setGroupName] = useState('');
+    const [groupCode, setGroupCode] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleJoinGroup(groupName);
+        handleJoinGroup(groupName, groupCode);
     };
 
-    const handleChange = (e) => {
+    const handleGroupNameChange = (e) => {
         setGroupName(e.target.value);
+    };
+
+    const handleGroupCodeChange = (e) => {
+        setGroupCode(e.target.value);
     };
 
     return (
@@ -20,7 +25,13 @@ const JoinGroupForm = ({ handleJoinGroup }) => {
                 type="text"
                 placeholder="Enter group name"
                 value={groupName}
-                onChange={handleChange}
+                onChange={handleGroupNameChange}
+            />
+            <input
+                type="text"
+                placeholder="Enter group code"
+                value={groupCode}
+                onChange={handleGroupCodeChange}
             />
             <button type="submit">Join Group</button>
         </form>

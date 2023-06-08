@@ -2,23 +2,24 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 import JoinGroupForm from '@components/JoinGroupForm';
 
 const JoinGroup = () => {
   const router = useRouter();
+  const {data: session} = useSession();
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleJoinGroup = async (groupName) => {
+  const handleJoinGroup = async ( groupName, groupCode) => {
     try {
       const response = await fetch("/api/group/join", {
         method: "POST",
-        body: JSON.stringify({ userId: userId, groupId: groupName }),
+        body: JSON.stringify({ groupName: groupName, groupCode: groupCode, userId: session?.user?.id }),
         headers: {
           "Content-Type": "application/json",
         },
       });
-
 
       if (response.ok) {
         // Redirect to group page or display success message
