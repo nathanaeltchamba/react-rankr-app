@@ -9,7 +9,7 @@ const Home = () => {
           Yourself and Friends
         </span>
       </h1>
-      <p className='desc text-center'>If you think you know your friends they way they think
+      <p className='desc text-center'>If you think you know your friends the way they think
         they know you, guess again.</p>
 
       <GroupFeed />

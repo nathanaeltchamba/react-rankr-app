@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
+import Image from "next/image";
+
 const GroupPage = ({post}) => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -21,6 +23,7 @@ const GroupPage = ({post}) => {
             "Content-Type": "application/json",
           },
         });
+        console.log(group)
         const data = await response.json();
         const memberUsernames = data.usernames;
         // console.log('MemberUsername', memberUsernames);
@@ -39,7 +42,7 @@ const GroupPage = ({post}) => {
         const response = await fetch(`/api/group/${groupId}`);
         const data = await response.json();
         setGroup(data);
-        console.log(data)
+        // console.log(data)
       } catch (error) {
         console.error('Failed to fetch group:', error);
       }
@@ -62,7 +65,16 @@ const GroupPage = ({post}) => {
       </section>
       <ul>
         {members.map((member) => (
-          <li className="" key={member}>{member}</li>
+          <li className="" key={member}>
+            {member}
+            {/* <Image 
+              src={member.image}
+              alt="user_image"
+              width={40}
+              height={40}
+              className="rounded-full object-contain"
+            /> */}
+          </li>
         ))}
       </ul>
       {/* Render other group details */}

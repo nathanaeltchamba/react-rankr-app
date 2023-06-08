@@ -30,7 +30,6 @@
 
 .main:after {
   content: "";
-  background-image: url("../public/assets/images/grid.svg");
   z-index: 1;
   position: absolute;
   width: 100%;
@@ -150,6 +149,11 @@
 .glassmorphism {
   @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
 }
+
+.glassmorphism1 {
+  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_-10px_-50px_94px_0_rgb(195,195,195,0.2)] backdrop-blur p-5;
+}
+
 
 .prompt_layout {
   @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
