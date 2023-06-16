@@ -68,7 +68,7 @@ const GroupPage = ({post}) => {
           <li className="" key={member}>
             {member}
             {/* <Image 
-              src={member.image}
+              src="/public/assets/images/rank-logo.svg"
               alt="user_image"
               width={40}
               height={40}
