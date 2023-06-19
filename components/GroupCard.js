@@ -58,7 +58,7 @@ const GroupCard = ({ post, handleEdit, handleDelete }) => {
                         {members.map((member) => member).join(", ")}
                     </p>
 
-                    <Link className="outline_btn" href={'/group' + '?id=' + post._id} >
+                    <Link className="text-sm mt-2 blue_gradient" href={'/group' + '?id=' + post._id} >
                         View Group
                     </Link>
                 </div>
